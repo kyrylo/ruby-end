@@ -190,13 +190,20 @@ Feature: Insert end
         
       end
       """
-    When I type "foo"
-    When I press "C-b"
+    When I press "C-p C-e"
     And I press "RET"
     Then I should see:
       """
       foo do
-        fo
-      o
+        
+      end
+      """
+    When I type "1"
+    And I press "C-p C-e"
+    And I press "RET"
+    Then I should see:
+      """
+      foo do
+        1
       end
       """
